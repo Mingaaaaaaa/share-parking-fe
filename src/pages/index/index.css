@@ -1,0 +1,48 @@
+.body {
+  background-color: #f7f7f7;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+}
+
+.background {
+  width: 100%;
+  object-fit: cover;
+}
+
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20rpx;
+  width: 90%;
+  max-width: 800rpx;
+}
+
+.module {
+  width: 36%;
+  background-color: #ffffff;
+  padding: 40rpx;
+  margin: 20rpx 0;
+  text-align: center;
+  border-radius: 32rpx;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  box-shadow: 6rpx 4rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.module Text {
+  font-size: 36rpx;
+  color: #333;
+}
+
+.icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+  object-fit: fill;
+}

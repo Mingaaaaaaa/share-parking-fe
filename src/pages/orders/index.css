@@ -1,0 +1,37 @@
+.orders {
+  padding: 20rpx;
+}
+
+.order-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 16rpx;
+  border: 1rpx solid #ccc;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-id,
+.order-slot,
+.order-time,
+.order-status {
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+
+.detail-button {
+  padding: 10rpx;
+  background-color: #007aff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8rpx;
+  text-align: center;
+}

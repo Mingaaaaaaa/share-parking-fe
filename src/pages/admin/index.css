@@ -1,0 +1,50 @@
+.admin-review {
+  padding: 20rpx;
+  background-color: #f0f0f0b5;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1);
+  border: 1rpx solid #f0f0f0;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+}
+
+.name,
+.address,
+.price,
+.status {
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+
+.detail-button {
+  padding: 10rpx;
+  background-color: #007aff;
+  border: none;
+  border-radius: 8rpx;
+  color: #ffffff;
+  text-align: center;
+  flex: 0.5;
+}
+
+.inactive {
+  background-color: #d1cece;
+  color: #000000;
+}

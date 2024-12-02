@@ -1,0 +1,63 @@
+.admin-review-detail {
+  padding: 20rpx;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 20rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1);
+  margin-bottom: 20rpx;
+}
+
+.name,
+.address,
+.price,
+.available-time {
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+
+.guide-map,
+.proof-image {
+  width: 90%;
+  height: 400rpx;
+  margin: 0 auto;
+  display: flex;
+  margin-top: 20rpx;
+  border: solid 1px;
+  object-fit: contain;
+  border-radius: 8rpx;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.approve-button,
+.reject-button {
+  width: 48%;
+  padding: 20rpx;
+  border: none;
+  border-radius: 8rpx;
+  text-align: center;
+}
+
+.approve-button {
+  background-color: #007aff;
+  color: #ffffff;
+}
+
+.reject-button {
+  background-color: #ff3b30;
+  color: #ffffff;
+}
+
+.desc {
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+  text-align: center;
+}
