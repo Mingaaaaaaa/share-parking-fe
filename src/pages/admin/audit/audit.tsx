@@ -43,7 +43,7 @@ export default function Audit() {
         <Text className="address">地址: {parkingInfo.address}</Text>
         <Text className="price">价格: {parkingInfo.price_per_hour}元/小时</Text>
         <Text className="available-time">
-          可用时间: {parkingInfo.availableTime}
+          可用时间: {parkingInfo.start_time} - {parkingInfo.end_time}
         </Text>
         <Image src={overView} className="guide-map" />
         <Text className="desc">导览图</Text>

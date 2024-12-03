@@ -1,5 +1,7 @@
 .orders {
   padding: 20rpx;
+  height: 100vh;
+  background-color: #f0f0f0b5;
 }
 
 .order-card {
@@ -33,5 +35,20 @@
   color: #ffffff;
   border: none;
   border-radius: 8rpx;
+  text-align: center;
+}
+
+.order-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cancel-btn {
+  width: 207rpx;
+  align-self: flex-end;
+  margin: 0 10rpx;
+  border: #ccdced 1rpx solid;
+  border-radius: 8rpx;
+  font-size: 28rpx;
   text-align: center;
 }

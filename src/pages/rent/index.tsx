@@ -30,7 +30,9 @@ export default function Index() {
         {rentHistory.map((record) => (
           <View key={record._id} className="history-item">
             <View className="name">车位名称: {record.name}</View>
-            <View className="time">时间: {record.availableTime}</View>
+            <View className="time">
+              时间: {record.start_time}- {record.end_time}
+            </View>
             <View className="price">价格: {record.price_per_hour}元/小时</View>
             <View className="status">
               状态: {record.slot_status === "active" ? "出租中" : "不可用"}

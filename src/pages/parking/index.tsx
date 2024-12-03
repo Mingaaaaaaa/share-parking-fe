@@ -161,7 +161,7 @@ export default function Index() {
             <View className="info">
               <Text className="name">车位号: {parking.name}</Text>
               <Text className="available-time">
-                可用时间: {parking.availableTime}
+                可用时间: {parking.start_time} - {parking.end_time}
               </Text>
               <Text className="address">地址: {parking.address}</Text>
               <View className="sub-info">
@@ -186,7 +186,7 @@ export default function Index() {
                       parking.slot_status === "active" ? "#bdf3bd" : "#f3b3b3",
                   }}
                 >
-                  {parking.slot_status === "active" ? "可预约" : "不可预约"}
+                  {parking.slot_status === "active" ? "可预约" : "审核中"}
                 </Text>
               </View>
             </View>

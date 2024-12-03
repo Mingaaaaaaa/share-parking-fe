@@ -11,30 +11,20 @@ import {
 } from "@tarojs/components";
 import { get, post } from "../../../req";
 import "./index.css";
-import { Neighborhood } from "@/type";
+import { Neighborhood, ParkingSlot } from "@/type";
 
 export default function Publish() {
   const [neighborhoods, setNeighborhoods] = useState<Neighborhood[]>([]);
-  const [form, setForm] = useState<{
-    neighborhood_id: string;
-    name: string;
-    address: string;
-    price_per_hour: string;
-    availableTime: string;
-    new_coordinates: number[];
-    timeRange: string[];
-    dateRange: string[];
-    proof_image: string;
-  }>({
+  const [form, setForm] = useState<ParkingSlot>({
     neighborhood_id: "",
     name: "",
     address: "",
-    price_per_hour: "",
-    availableTime: "",
+    price_per_hour: 0,
     new_coordinates: [0, 0],
-    timeRange: [],
-    dateRange: [],
     proof_image: "",
+    dateRange: ["", ""],
+    timeRange: ["", ""],
+    distance: 0,
   });
 
   useEffect(() => {
@@ -87,10 +77,15 @@ export default function Publish() {
   const handleRangeChange = (e, type, field) => {
     const time = e.detail.value;
     if (type === "date") {
-      setForm({ ...form, dateRange: { ...form.dateRange, [field]: time } });
+      let newRange = form.dateRange;
+      newRange[field] = time;
+      setForm({ ...form, dateRange: newRange });
     }
-    if (type === "time")
-      setForm({ ...form, timeRange: { ...form.timeRange, [field]: time } });
+    if (type === "time") {
+      let newRange = form.timeRange;
+      newRange[field] = time;
+      setForm({ ...form, timeRange: newRange });
+    }
   };
 
   const handleMapClick = (e) => {
@@ -110,15 +105,13 @@ export default function Publish() {
   };
 
   const handleSubmit = () => {
-    const availableTime =
-      form.dateRange[0] +
-      " " +
-      form.timeRange[0] +
-      "-" +
-      form.dateRange[1] +
-      " " +
-      form.timeRange[1];
-    const newForm = { ...form, availableTime };
+    const start_time = new Date(
+      form.dateRange[0] + " " + form.timeRange[0].slice(0, 5)
+    );
+    const end_time = new Date(
+      form.dateRange[1] + " " + form.timeRange[1].slice(0, 5)
+    );
+    const newForm = { ...form, start_time, end_time };
     post("/parking_slots", newForm).then((res) => {
       Taro.showToast({
         title: "发布成功",
@@ -143,7 +136,7 @@ export default function Publish() {
           onChange={handleNeighborhoodChange}
         >
           <View className="picker">
-            {form.neighborhood_id
+            {form?.neighborhood_id
               ? neighborhoods.find(
                   (neighborhood) => neighborhood._id === form.neighborhood_id
                 )?.name ?? "请选择小区"
@@ -172,7 +165,7 @@ export default function Publish() {
         <Input
           className="input"
           type="number"
-          value={form.price_per_hour}
+          value={form.price_per_hour.toString()}
           onInput={(e) => handleInputChange(e, "price_per_hour")}
         />
       </View>
@@ -229,8 +222,8 @@ export default function Publish() {
         <Text className="label">选择车位位置</Text>
         <Map
           className="map"
-          longitude={form.new_coordinates[0]}
-          latitude={form.new_coordinates[1]}
+          longitude={118.93112512234393}
+          latitude={32.11517754111049}
           onClick={handleMapClick}
           scale={16}
           markers={[
